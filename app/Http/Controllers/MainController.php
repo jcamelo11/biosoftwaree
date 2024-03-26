@@ -32,14 +32,14 @@ class MainController extends ControllerBase
         //     ->orderBy('total_avistamientos', 'asc')
         //     ->first();
        
-        // return view('landing_pages.welcome', [
+        // return view('page_home.welcome', [
         //     'avistamientosTotales' => $avistamientosTotales,
         //     'aveCount' => $aveCount
         // ]);
        
      
          $sharedData = $this->getSharedData();
-         return view('landing_pages.welcome', $sharedData);
+         return view('page_home.welcome', $sharedData);
      
     }
 
@@ -68,7 +68,7 @@ class MainController extends ControllerBase
 
 
 
-        return view('landing_pages.pages.especies', compact('aves'));
+        return view('page_home.pages.especies', compact('aves'));
     }
 
     public function show($id)
@@ -77,7 +77,7 @@ class MainController extends ControllerBase
         $areas = Area::all();
         $avistamientos = Avistamiento::all();
 
-        return view('landing_pages.pages.ver', compact('ave', 'areas', 'avistamientos'));
+        return view('page_home.pages.ver', compact('ave', 'areas', 'avistamientos'));
     }
 
     public function search(Request $request)
@@ -90,7 +90,7 @@ class MainController extends ControllerBase
     
         if (!$ave) {
             $term = $request->input('q');
-            return view('landing_pages.pages.no_aves_found')->with('searchTerm', $term);
+            return view('page_home.pages.no_aves_found')->with('searchTerm', $term);
         } else {
             return redirect()->route('especies.show', $ave->id);
         }
@@ -104,12 +104,12 @@ class MainController extends ControllerBase
     {
 
 
-        return view('landing_pages.pages.areas');
+        return view('page_home.pages.areas');
     }
 
     public function nosotros ()
     {
-        return view('landing_pages.pages.nosotros');
+        return view('page_home.pages.nosotros');
     }
 
 }

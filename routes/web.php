@@ -17,7 +17,7 @@ use App\Http\Controllers\AvistamientoController;
 */
 
 Route::get('/', function () {
-    return view('landing_pages.welcome');
+    return view('page_home.welcome');
 });
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('welcome');

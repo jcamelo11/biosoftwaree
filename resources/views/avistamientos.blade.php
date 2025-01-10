@@ -7,9 +7,11 @@
 <!-- Incluir jQuery UI -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
 @section('CSS')
 <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 @endsection
+
 
 
 @section('content')
@@ -78,7 +80,6 @@
                                 </script>
                             @endsection
 
-
                         </div>
                         <div class="col-md-4 mb-4">
                             <label for="area_id">Seleccionar área</label>
@@ -134,15 +135,15 @@
                 <div class="col-md-12">
                    <div class="table-responsive p-0">
                         @if(!empty($avistamientos))
-                        
-                            <table id="aves" class="table align-items-center justify-content-center mb-0 ">
+                            <table id="avistamiento" class="table align-items-center justify-content-center mb-0 ">
                                 <thead>
                                     <tr  class="text-center">
-                                        <th>Especie</th>
-                                        <th>Área</th>
-                                        <th>N° avistamiento</th>
-                                        <th>Fecha</th>
-                                        <th>Registrado por</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-4">Especie</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-4">Área</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-4">N° avistamiento</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-4">Fecha</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-4">Registrado por</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -152,7 +153,7 @@
                                         <td>{{ $avistamiento->area->nombre }}</td>
                                         <td>{{ $avistamiento->numero_avistamiento }}</td>
                                         <td>{{ $avistamiento->fecha }}</td>
-                                        <td>{{ $avistamiento->nombre_usuario }} {{ $avistamiento->apellido_usuario }}</td>
+                                        <td>{{ $avistamiento->nombre_usuario }}</td>
                                     </tr>
                                 @endforeach
 
@@ -172,16 +173,7 @@
         </div>
         </div>
     </div> 
-    
 </div>
-
-
-
-
-                        
-   
-
-
 @endsection 
 
 

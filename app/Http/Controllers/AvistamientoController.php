@@ -193,12 +193,52 @@ class AvistamientoController extends Controller
 
         return $dompdf->stream('avistamientos.pdf');
     }
-    
 
-    
-    
+    public function edit($id)
+    {
+        // Encuentra el avistamiento por su ID
+        $avistamiento = Avistamiento::findOrFail($id);
+        
+        // Devuelve la vista de edición con los datos del avistamiento
+        return view('avistamientos.index', compact('avistamiento'));
+    }
 
-    
+    public function update(Request $request, $id)
+    {
+        // Validar los datos del formulario de edición, similar al método store
+
+        // Encuentra el avistamiento por su ID
+        $avistamiento = Avistamiento::findOrFail($id);
+        
+        // Actualiza los datos del avistamiento con los datos del formulario
+        $avistamiento->fecha = $request->input('fecha');
+        $avistamiento->numero_avistamientos = $request->input('numero_avistamientos');
+       
+
+        // Guarda los cambios en la base de datos
+        $avistamiento->save();
+
+        $notificacion = "Se ha editado correctamente";
+
+        // Redirige a alguna vista, por ejemplo, a la vista de detalles del avistamiento actualizado
+        return redirect()->route('avistamientos.index', $avistamiento->ave_id)->with(compact('notificacion'));
+    }
+
+    public function delete($id)
+    {
+        // Encuentra el avistamiento por su ID
+        $avistamiento = Avistamiento::findOrFail($id);
+        
+        // Elimina el avistamiento de la base de datos
+        $avistamiento->delete();
+
+        $notificacion = "Se ha eliminado el registro con éxito";
+
+        // Redirige a alguna vista, por ejemplo, a la lista de avistamientos
+        return redirect()->route('avistamientos.index')->with(compact('notificacion'));
+    }
+
+
     
 
     

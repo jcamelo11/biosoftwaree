@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/avistamientos', [App\Http\Controllers\AvistamientoController::class, 'store'])->name('avistamientos.store');
     Route::get('/avistamientos', [App\Http\Controllers\AvistamientoController::class, 'index'])->name('avistamientos.index');
+    Route::get('/avistamientos/{avistamiento}/editar', [AvistamientoController::class, 'edit'])->name('avistamientos.edit');
+    Route::put('/avistamientos/{avistamiento}', [AvistamientoController::class, 'update'])->name('avistamientos.update');
+    Route::delete('/avistamientos/{avistamiento}', [AvistamientoController::class, 'destroy'])->name('avistamientos.destroy');
     Route::get('/avistamientos/exportar', [App\Http\Controllers\AvistamientoController::class, 'exportarAvistamientos'])->name('exportar.avistamientos');
     Route::get('/avistamientos/exportPdf', [App\Http\Controllers\AvistamientoController::class, 'exportPdf'])->name('avistamientos.pdf');
     Route::get('/Pdf', [App\Http\Controllers\AvistamientoController::class, 'Pdf'])->name('pdf');

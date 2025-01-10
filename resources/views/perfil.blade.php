@@ -176,12 +176,7 @@
             <div class="card-body pt-2">
               <div class="row">
                 <div class="col">
-                  <div class="d-flex justify-content-center">
-                    
-                    <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">{{ optional($countAvistamientos)->count() ?? 0 }}</span>
-                      <span class="text-sm opacity-8">Avistamientos registrados</span>
-                    </div>
+                  <div class="d-flex justify-content-center">  
                   </div>
                 </div>
               </div>

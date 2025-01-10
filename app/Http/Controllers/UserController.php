@@ -107,7 +107,7 @@ class UserController extends Controller
 
         $notificacion = "Se ha eliminado el usuario correctamente";
 
-        return redirect()->route('usruarios')->with(compact('notificacion'));
+        return redirect()->route('usuarios')->with(compact('notificacion'));
     }
     
     public function getAvatarAttribute($value)
